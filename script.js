@@ -1,0 +1,22 @@
+const countDown = () => {
+  countDate = new Date("Jan 1, 2022 00:00:00").getTime();
+  console.log(countDate);
+  const currentTime = new Date().getTime();
+  const gap = countDate - currentTime;
+  const second = 1000;
+  const minute = second * 60;
+  const hour = minute * 60;
+  const day = hour * 24;
+  const year = day * 365;
+  const outputYear = Math.floor(gap / year);
+  const outputDay = Math.floor((gap % year) / day);
+  const outputHour = Math.floor((gap % day) / hour);
+  const outputMinute = Math.floor((gap % hour) / minute);
+  const outputSecond = Math.floor((gap % minute) / second);
+  document.querySelector(".Years").innerHTML = outputYear;
+  document.querySelector(".Days").innerHTML = outputDay;
+  document.querySelector(".Hours").innerHTML = outputHour;
+  document.querySelector(".Minutes").innerHTML = outputMinute;
+  document.querySelector(".Seconds").innerHTML = outputSecond;
+};
+setInterval(countDown, 1000);
